@@ -1,4 +1,4 @@
-package com.ipsgholdings.guestBookOracle;
+package dto;
 
 public class MemberDTO {
 	//ユーザー番号
