@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- MyBatisを使用するxmlファイルであることを宣言 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="member">
+  
+  <select id="login" resultType="DTO.MemberDTO">
+		select * from member where IDX = #{idx} and PASSWD = #{password}
+	</select>
+  
+  <!-- 1件検索 -->
+  	<select id="detail" resultType="DTO.MemberDTO">
+		select * from member
+		where idx = #{idx}
+	</select>
+	
+	<!--　1件登録　-->
+	<insert id="insert">
+		insert into member(idx, passswd, name)
+		values (#{idx}, #{passswd}, #{name})
+	</insert>
+  
+  
+  </mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- MyBatisを使用するxmlファイルであることを宣言 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="memo">
+  
+  	<select id="list" resultType="DTO.MemoDTO">
+  		select * from memo
+		
+  	</select>
+  	
+	<select id="detail" resultType="DTO.MemoDTO">
+		select * from memo
+		where idx = #{idx}
+	</select>
+  	
+  	<update id="update">
+  		update memo
+		set 
+			idx = #{idx},
+			writer = #{writer},
+			memo = #{memo},
+			post_date = #{post_date}
+		where idx = #{idx}
+  	</update>
+  	
+  	<delete id="delete">
+	  	delete from idx
+		where idx = #{idx}
+  	</delete>
+  	
+  	<insert id="insert">
+ 	 	insert into memo(idx, writer, memo, post_date)
+		values (#{idx}, #{writer}, #{memo}, #{post_date})
+  	</insert>
+ 
+  </mapper>
