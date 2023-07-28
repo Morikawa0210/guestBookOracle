@@ -16,4 +16,8 @@ public class MemberDAO {
 		MemberDTO memberDTO = new MemberDTO(email, password);
 		return sqlSession.selectOne("member.login", memberDTO);
 	}
+	
+	public MemberDTO userDetail(String idx){
+		return sqlSession.selectOne("member.detail",idx);
+	}
 }

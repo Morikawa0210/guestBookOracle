@@ -33,10 +33,9 @@ public class MemberController {
 		return mv;
 	}
 	
-	
 //	ログイン
 	@RequestMapping("/login")
-	public String login(HttpServletRequest request, 
+	public ModelAndView login(HttpServletRequest request, 
 			String email,String password, ModelAndView mv) {
 		System.out.println("Controller,loginメソッド入場");
 		System.out.println("emailとpass:" + email +"+"+ password);
@@ -44,17 +43,18 @@ public class MemberController {
 			boolean existsError = dataValidation(email, password, request);
 			
 			if(existsError == true) {
-				return "redirect:/showLogin";
+				mv.setViewName("redirect:/showLogin");
 			}
 			
 			MemberDTO memberDTO = memberDAO.findUser(email, password);
-			
+			System.out.println(memberDTO.getName());
 //		ログイン情報を保存する
 			HttpSession session = request.getSession();
 			session.setAttribute("memberDTO", memberDTO);
-			
-			
-			return "redirect:/list";
+			mv.addObject("welcome",memberDTO);
+			mv.setViewName("home");
+			System.out.println(mv);
+			return mv;
 	}
 	
 	

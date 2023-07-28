@@ -26,8 +26,9 @@ public class GuestBookController {
 		mv.setViewName("guestbook");
 		
 //		DAOから取得した商品情報リストをModelAndViewに「list」という名前で格納
-		mv.addObject("list", GuestBookDAO.list());
+		mv.addObject("guestList", GuestBookDAO.list());
 		System.out.println("GuestBook:" + mv);
+		System.out.println(mv.getModel());
 		System.out.println("遷移先:" + mv.getViewName());
 		return mv;
 	}
