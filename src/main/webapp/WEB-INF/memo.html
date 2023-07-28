@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<th:block th:include="header"></th:block>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>メモ帳</h2>
+	<div>名前：<input type="text" size="15">
+	メモ：<input type="text" size="35">
+	<button type="button">登録</button></div>
+	
+	<table border="1">
+		<tr>
+			<th>No</th>
+			<th>名前</th>
+			<th>メモ</th>
+			<th>日付</th>
+		</tr>
+		<tr th:each="row : ${list}">
+			<td th:text="${row.idx}"></td>
+			<td th:text="${row.writer}"></td>
+			<td th:text="${row.memo}"></td>
+			<td th:text="${row.post_date}"></td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<th:block th:include="header"></th:block>
+<meta charset="UTF-8">
+<title>GuestBook</title>
+</head>
+<body>
+  <h1>ゲストブック</h1>
+  <button type="" onclick="">記事作成</button><br><br>
+  登録されている商品の個数: <span th:text="${#lists.size(list)}"></span>	件
+  <table border="1">
+    <tr th:each="row : ${list}">
+      <td width="120" align="center">
+        名前
+      </td>
+      <td width="200" align="center" th:text="${row.name}"></td>
+      <td width="120" align="center">
+      	日時
+      </td>
+      <td width="200" align="center" th:text="${row.post_date}"></td>
+    </tr>
+    <tr>
+      <td align="center">
+        メールアドレス
+      </td>
+      <td colspan="3" th:text="${row.email}"></td>
+    </tr>
+    <tr><td width="" colspan="4" th:text="${row.content}"><a href=""></a></td></tr>
+  </table>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<th:block th:include="header"></th:block>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>メモ帳</h2>
+<div></div>
+
+<div>
+名前: <input type="text" size="15" th:text="${row.name}" ><br>
+メモ: <input type="text" size="35" th:text="${row.memo}">
+</div>
+
+<div><button type="button">修正</button>
+<button type="button">削除</button>
+<button type="button">目録</button>
+</div>
+
+</body>
+</html>
