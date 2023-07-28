@@ -32,8 +32,8 @@
   	</delete>
   	
   	<insert id="insert">
- 	 	insert into guestbook(idx, name, email, content, post_date)
-		values (#{idx}, #{name}, #{email}, #{content}, #{post_date})
+ 	 	insert into guestbook(idx, name, email, content)
+		values ((select nvl(max(idx)+1,1)from guestbook), #{name}, #{email}, #{content})
   	</insert>
   
   

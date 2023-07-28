@@ -7,6 +7,7 @@
 </head>
 <h2>ゲストブック作成</h2>
 <body>
+<form th:action="@{/GuestBookinsert}" th:method="post">
 <table border="1" width="500">
 <tr>
 <td>名前</td>
@@ -17,12 +18,14 @@
 <td><input type="text" name="email"></td>
 </tr>
 <tr>
-<td><textarea rows="4" cols="80"></textarea></td>
+<td><textarea rows="4" cols="80" name="content"></textarea></td>
 </tr>
 <tr>
 <td colspan="2">
-<button type="button">登録</button>
+<input type="submit" value="登録">
 </td>
 </tr>
+</table>
+</form>
 </body>
 </html>

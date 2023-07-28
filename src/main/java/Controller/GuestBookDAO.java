@@ -30,8 +30,7 @@ public class GuestBookDAO {
 	public void insert(GuestBookDTO guestBookDTO) {
 		System.out.println("dao.insertメソッド入場");
 		sqlSession.insert("guestbook.insert", guestBookDTO);
-		sqlSession.commit();
-		sqlSession.close();
+	
 	}
 	
 //	編集

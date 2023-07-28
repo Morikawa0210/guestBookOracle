@@ -36,17 +36,23 @@ public class GuestBookController {
 //	ゲストブック作成のページを表示
 	@RequestMapping("/guestbookcreate")
 	public String insert() {
-		return "insert";
+		return "guestbookcreate";
 	}
 	
 	
 //	ゲストブックをDBに登録
 	@RequestMapping("/GuestBookinsert")
-	public String insert(@RequestParam MultipartFile img, 
+	public String insert(@RequestParam String name,@RequestParam String email,
+			@RequestParam String content,
 			HttpServletRequest request,
 			GuestBookDTO GuestBookDTO) {
+		GuestBookDTO.setEmail(email);
+		GuestBookDTO.setName(name);
+		GuestBookDTO.setContent(content);
 //		DBに登録
 		GuestBookDAO.insert(GuestBookDTO);
+		System.out.println("insertだよー");
+		System.out.println(GuestBookDTO);
 //		一覧へ遷移
 		return "redirect:/guestbook";
 	}

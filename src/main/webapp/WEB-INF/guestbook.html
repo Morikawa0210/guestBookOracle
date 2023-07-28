@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1>ゲストブック</h1>
-  <button type="button" th:onclick="|window.location.href='@{guestbookcreate}'|">記事作成</button><br><br>
+  <button type="button" th:onclick="|window.location.href='@{/guestbookcreate}'|">記事作成</button><br><br>
   登録されている商品の個数: <span th:text="${#lists.size(guestList)}"></span>	件
   <table border="1" th:each="row : ${guestList}">
     <tr>
