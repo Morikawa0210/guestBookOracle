@@ -6,24 +6,27 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form th:action="@{/GuestBookupdate/{idx}(idx=${GuestBook.idx})}" th:method="post">
 <table border="1" width="500">
 <tr>
 <td>名前</td>
-<td><input type="text" name="name" th:text="${row.name}"></td>
+<td><input type="text" name="name" th:value="${GuestBook.name}" ></td>
 </tr>
 <tr>
 <td>メールアドレス</td>
-<td><input type="text" name="email" th:text="${row.email}"></td>
+<td><input type="text" name="email" th:value="${GuestBook.email}" ></td>
 </tr>
 <tr>
-<td><textarea rows="4" cols="80"></textarea></td>
+<td><textarea rows="4" cols="80" th:text="${GuestBook.content}" name="content"></textarea></td>
 </tr>
 <tr>
 <td colspan="2">
-<button type="button">修正</button>
-<button type="button">削除</button>
+<button type="submit">修正</button>
+<button type="button" th:onclick="|window.location.href='@{/GuestBookdelete/{idx}(idx=${GuestBook.idx})}'|">削除</button>
 <button type="button">一覧へ</button></td>
 </tr>
 </table>
+<input type="hidden" th:value="${GuestBook.post_date}" name="post_date">
+</form>
 </body>
 </html>

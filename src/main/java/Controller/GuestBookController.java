@@ -59,9 +59,10 @@ public class GuestBookController {
 
 	
 //	ゲストブック詳細
-	@RequestMapping("/GuestBookdetail/{idx}")
+	@RequestMapping("/guestbookdetail/{idx}")
 	public ModelAndView detail(@PathVariable int idx, ModelAndView mv) {
-		mv.setViewName("detail");
+		System.out.println("detailだよー");
+		mv.setViewName("guestbookdetail");
 		
 		mv.addObject("GuestBook", GuestBookDAO.detail(idx));
 		
@@ -72,18 +73,25 @@ public class GuestBookController {
 	
 	
 //	ゲストブック更新
-	@RequestMapping("/GuestBookupdate")
+	@RequestMapping("/GuestBookupdate/{idx}")
 	public String update(GuestBookDTO GuestBookDTO,
+			@RequestParam String name,@RequestParam String email,
+			@RequestParam String content,@RequestParam String post_date,
 				@PathVariable int idx,
 				HttpServletRequest request) {
+		System.out.println("updateだよー");
+		GuestBookDTO.setContent(content);
+		GuestBookDTO.setEmail(email);
+		GuestBookDTO.setName(name);
+		GuestBookDTO.setPost_date(post_date);
 //		ゲストブック更新
 		GuestBookDAO.update(GuestBookDTO);
-		return "redirect:/GuestBook";
+		return "redirect:/guestbook";
 	}
 	
 //	ゲストブック削除
-	@RequestMapping("/GuestBookdelete")
-	public String delete(int idx, HttpServletRequest request) {
+	@RequestMapping("/GuestBookdelete/{idx}")
+	public String delete(@PathVariable int idx, HttpServletRequest request) {
 //			ゲストブック番号をもとに削除
 		GuestBookDAO.delete(idx);
 		return "redirect:/GuestBook";

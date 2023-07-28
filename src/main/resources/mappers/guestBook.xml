@@ -18,12 +18,11 @@
   	
   	<update id="update">
   		update guestbook
-		set 
-			idx = #{idx},
+		set idx = #{idx},
 			name = #{name},
 			email = #{email},
 			content = #{content}
-		where idx = #{idx}
+			where idx = #{idx}
   	</update>
   	
   	<delete id="delete">
