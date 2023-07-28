@@ -23,6 +23,7 @@ public class MemoController {
 	@RequestMapping("/list")
 	public ModelAndView list(ModelAndView mv) {
 		System.out.println("Controller,listメソッド入場");
+		System.out.println("a");
 		mv.setViewName("memo");
 		
 //		DAOから取得した商品情報リストをModelAndViewに「list」という名前で格納
