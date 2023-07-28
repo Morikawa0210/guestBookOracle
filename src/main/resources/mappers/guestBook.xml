@@ -9,10 +9,6 @@
   
    	<select id="list" resultType="DTO.GuestBookDTO">
   		select * from guestbook
-		where 
-		idx like #{idx}
-		order by
-		idx desc
   	</select>
   	
 	<select id="detail" resultType="DTO.GuestBookDTO">

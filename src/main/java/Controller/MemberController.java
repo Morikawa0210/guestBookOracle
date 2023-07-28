@@ -34,9 +34,6 @@ public class MemberController {
 	}
 	
 	
-	
-	
-	
 //	ログイン
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, 

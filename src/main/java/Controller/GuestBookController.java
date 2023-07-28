@@ -23,11 +23,10 @@ public class GuestBookController {
 	@RequestMapping("/guestbook")
 	public ModelAndView list(ModelAndView mv) {
 		System.out.println("Controller,listメソッド入場");
-		mv.setViewName("GuestBook");
+		mv.setViewName("guestbook");
 		
 //		DAOから取得した商品情報リストをModelAndViewに「list」という名前で格納
 		mv.addObject("list", GuestBookDAO.list());
-
 		System.out.println("GuestBook:" + mv);
 		System.out.println("遷移先:" + mv.getViewName());
 		return mv;

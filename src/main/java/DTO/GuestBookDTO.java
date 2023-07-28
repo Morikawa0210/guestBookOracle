@@ -46,7 +46,13 @@ public class GuestBookDTO {
 	public void setPost_date(String post_date) {
 		this.post_date = post_date;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "GuestBookDTO [idx=" + idx + ", name=" + name + ", email=" + email + ", content=" + content
+				+ ", post_date=" + post_date + "]";
+	}
+	
+	
 
 }

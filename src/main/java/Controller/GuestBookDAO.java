@@ -17,7 +17,7 @@ public class GuestBookDAO {
 	public List<MemoDTO> list(){
 //		selectList()メソッドの第一引数にはnamespace.idを、第二引数にはmapperに渡す変数を指定する
 		System.out.println("dao.listメソッド入場");
-		return sqlSession.selectList("guestbook.list_all");
+		return sqlSession.selectList("guestbook.list");
 	}
 	
 //	メモ詳細
