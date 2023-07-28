@@ -15,7 +15,8 @@ import DTO.MemberDTO;
 public class MemberController {
 	@Autowired
 	MemberDAO memberDAO;
-	
+	@Autowired
+	HttpSession session;
 //	RequestMapping = PostMapping/GetMapping両方に対応
 //	url: localhostでhome()メソッド実行
 	@RequestMapping("/")
@@ -57,7 +58,28 @@ public class MemberController {
 			return mv;
 	}
 	
+	@RequestMapping("/welcomeHome")
+	public ModelAndView home(HttpServletRequest request,ModelAndView mv) {
+		HttpSession session=request.getSession(false);
+		if(session==null) {
+			mv.setViewName("login");
+		}else {
+			mv.setViewName("home");
+		}
+		return mv;
+	}
 	
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		session=request.getSession(false);
+		System.out.println(session==null);
+		if(session!=null) {
+		session.invalidate();
+		System.out.println(session==null);
+		}
+		System.out.println(session==null);
+		return "login";
+	}
 	
 	public boolean dataValidation(String email, String password, 
 			HttpServletRequest request) {

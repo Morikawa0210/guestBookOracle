@@ -43,6 +43,6 @@ public class GuestBookDAO {
 //	削除
 	public void delete(int idx) {
 		System.out.println("dao.deleteメソッド入場");
-		sqlSession.update("guestbook.delete", idx);
+		sqlSession.delete("guestbook.delete", idx);
 	}
 }

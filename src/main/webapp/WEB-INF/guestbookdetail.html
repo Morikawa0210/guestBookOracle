@@ -23,7 +23,7 @@
 <td colspan="2">
 <button type="submit">修正</button>
 <button type="button" th:onclick="|window.location.href='@{/GuestBookdelete/{idx}(idx=${GuestBook.idx})}'|">削除</button>
-<button type="button">一覧へ</button></td>
+<button type="button" th:onclick="|window.location.href='@{/guestbook}'|">一覧へ</button></td>
 </tr>
 </table>
 <input type="hidden" th:value="${GuestBook.post_date}" name="post_date">

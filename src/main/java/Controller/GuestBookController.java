@@ -93,7 +93,8 @@ public class GuestBookController {
 	@RequestMapping("/GuestBookdelete/{idx}")
 	public String delete(@PathVariable int idx, HttpServletRequest request) {
 //			ゲストブック番号をもとに削除
+		System.out.println("deleteだよ"+idx);
 		GuestBookDAO.delete(idx);
-		return "redirect:/GuestBook";
+		return "redirect:/guestbook";
 	}
 }

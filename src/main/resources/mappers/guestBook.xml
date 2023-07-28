@@ -26,7 +26,7 @@
   	</update>
   	
   	<delete id="delete">
-	  	delete from idx
+	  	delete from guestbook
 		where idx = #{idx}
   	</delete>
   	
