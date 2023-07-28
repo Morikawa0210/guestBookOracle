@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<th:block th:include="header"></th:block>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border="1" width="500">
+<tr>
+<td>名前</td>
+<td><input type="text" name="name" th:text="${row.name}"></td>
+</tr>
+<tr>
+<td>メールアドレス</td>
+<td><input type="text" name="email" th:text="${row.email}"></td>
+</tr>
+<tr>
+<td><textarea rows="4" cols="80"></textarea></td>
+</tr>
+<tr>
+<td colspan="2">
+<button type="button">修正</button>
+<button type="button">削除</button>
+<button type="button">一覧へ</button></td>
+</tr>
+</table>
+</body>
+</html>
