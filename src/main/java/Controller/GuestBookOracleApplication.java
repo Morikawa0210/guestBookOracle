@@ -1,4 +1,4 @@
-package com.ipsgholdings.guestBookOracle;
+package Controller;
 
 import javax.sql.DataSource;
 

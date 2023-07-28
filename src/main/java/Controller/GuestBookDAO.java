@@ -1,4 +1,4 @@
-package com.ipsgholdings.guestBookOracle;
+package Controller;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import DTO.GuestBookDTO;
 import DTO.MemoDTO;
-
 @Repository
-public class MemoDAO {
+public class GuestBookDAO {
 	@Autowired
 	SqlSession sqlSession;
 	
@@ -17,27 +17,27 @@ public class MemoDAO {
 	public List<MemoDTO> list(){
 //		selectList()メソッドの第一引数にはnamespace.idを、第二引数にはmapperに渡す変数を指定する
 		System.out.println("dao.listメソッド入場");
-		return sqlSession.selectList("memo.list");
+		return sqlSession.selectList("guestbook.list_all");
 	}
 	
 //	メモ詳細
-	public MemoDTO detail(int idx) {
+	public GuestBookDTO detail(int idx) {
 		System.out.println("dao.detailメソッド入場");
-		return sqlSession.selectOne("memo.detail", idx);
+		return sqlSession.selectOne("guestbook.detail", idx);
 	}
 	
 //	新規メモ登録
-	public void insert(MemoDTO memoDTO) {
+	public void insert(GuestBookDTO guestBookDTO) {
 		System.out.println("dao.insertメソッド入場");
-		sqlSession.insert("memo.insert", memoDTO);
+		sqlSession.insert("guestbook.insert", guestBookDTO);
 		sqlSession.commit();
 		sqlSession.close();
 	}
 	
 //	編集
-	public void update(MemoDTO memoDTO) {
+	public void update(GuestBookDTO GuestBookDTO) {
 		System.out.println("dao.updateメソッド入場");
-		sqlSession.update("memo.update", memoDTO);
+		sqlSession.update("guestbook.update", GuestBookDTO);
 		sqlSession.commit();
 		sqlSession.close();
 	}
@@ -45,7 +45,7 @@ public class MemoDAO {
 //	削除
 	public void delete(int idx) {
 		System.out.println("dao.deleteメソッド入場");
-		sqlSession.update("memo.delete", idx);
+		sqlSession.update("guestbook.delete", idx);
 		sqlSession.commit();
 		sqlSession.close();
 	}
