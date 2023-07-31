@@ -8,16 +8,18 @@
 <body>
 <h2>メモ帳</h2>
 <div></div>
-
+<form th:action="@{/memoupdate/{idx}(idx=${product.idx})}" th:method="post">
 <div>
-名前: <input type="text" size="15" th:text="${row.name}" ><br>
-メモ: <input type="text" size="35" th:text="${row.memo}">
+名前: <input type="text" size="15" th:value="${product.writer}" name="writer"><br>
+メモ: <input type="text" size="35" th:value="${product.memo}" name="memo">
+<input type="hidden" th:value="${product.idx}" name="idx">
+<input type="hidden" th:value="${product.post_date}" name="post_date">
 </div>
 
-<div><button type="button">修正</button>
-<button type="button">削除</button>
-<button type="button">目録</button>
+<div><button type="submit">修正</button>
+<button type="button" th:onclick="|window.location.href='@{/memodelete/{idx}(idx=${product.idx})}'|">削除</button>
+<button type="button" th:onclick="|window.location.href='@{/list}'|">目録</button>
 </div>
-
+</form>
 </body>
 </html>

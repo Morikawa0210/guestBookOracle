@@ -44,7 +44,7 @@ public class MemoController {
 //	メモ帳詳細
 	@RequestMapping("/memodetail/{idx}")
 	public ModelAndView detail(@PathVariable int idx, ModelAndView mv) {
-		mv.setViewName("detail");
+		mv.setViewName("memodetail");
 		
 		mv.addObject("product", memoDAO.detail(idx));
 		
@@ -55,32 +55,37 @@ public class MemoController {
 	}
 	
 //	memo更新
-	@RequestMapping("/memoupdate")
-	public String update(MemoDTO memoDTO,
-				@PathVariable int idx,
-				HttpServletRequest request) {
+	@RequestMapping("/memoupdate/{idx}")
+	public String update(@PathVariable int idx,MemoDTO memoDTO,
+			@RequestParam String writer,@RequestParam String memo,@RequestParam String post_date) {
 //		memo更新
+		memoDTO.setIdx(idx);
+		System.out.println(memoDTO);
 		memoDAO.update(memoDTO);
-		return "redirect:/memo";
+		System.out.println(memoDTO);
+		return "redirect:/list";
 	}
 	
 //	memoをDBに登録
 	@RequestMapping("/memoinsert")
-	public String insert(@RequestParam MultipartFile img, 
-			HttpServletRequest request,
-			MemoDTO memoDTO) {
+	public String insert(MemoDTO memoDTO) {
 //		DBにファイル名ごと登録
+		memoDTO.setAttendee("a");
+		memoDTO.setLocation("a");
+		memoDTO.setConclusion("a");
+		memoDTO.setPurpose("a");
 		memoDAO.insert(memoDTO);
 //		一覧へ遷移
-		return "redirect:/memo";
+		System.out.println(memoDTO);
+		return "redirect:/list";
 	}
 	
 	
 //	memo削除
-	@RequestMapping("/memodelete")
-	public String delete(int idx, HttpServletRequest request) {
+	@RequestMapping("/memodelete/{idx}")
+	public String delete(@PathVariable int idx) {
 //			idxをもとに削除
 		memoDAO.delete(idx);
-		return "redirect:/memo";
+		return "redirect:/list";
 	}
 }

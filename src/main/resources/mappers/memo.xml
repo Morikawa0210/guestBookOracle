@@ -19,22 +19,25 @@
   	
   	<update id="update">
   		update memo
-		set 
-			idx = #{idx},
+		set idx = #{idx},
 			writer = #{writer},
+			purpose=#{purpose},
+			location=#{location},
+			attendee=#{attendee},
 			memo = #{memo},
+			conclusion=#{conclusion},
 			post_date = #{post_date}
 		where idx = #{idx}
   	</update>
   	
   	<delete id="delete">
-	  	delete from idx
+	  	delete from memo
 		where idx = #{idx}
   	</delete>
   	
   	<insert id="insert">
- 	 	insert into memo(idx, writer, memo, post_date)
-		values (#{idx}, #{writer}, #{memo}, #{post_date})
+ 	 	insert into memo(idx, writer, purpose, location, attendee, memo, conclusion, post_date)
+		values (#{idx}, #{writer}, #{purpose}, #{location}, #{attendee}, #{memo}, #{conclusion}, #{post_date})
   	</insert>
  
   </mapper>

@@ -8,9 +8,10 @@
 <body>
 	<h2>メモ帳</h2>
 	<div>名前：<input type="text" size="15">
+	<form th:action="@{/memoinsert}" th:method="post">
 	メモ：<input type="text" size="35">
-	<button type="button">登録</button></div>
-	
+	<button type="submit">登録</button></div>
+	</form>
 	<table border="1">
 		<tr>
 			<th>No</th>
@@ -21,7 +22,7 @@
 		<tr th:each="row : ${list}">
 			<td th:text="${row.idx}"></td>
 			<td th:text="${row.writer}"></td>
-			<td th:text="${row.memo}"></td>
+			<td><a th:href="@{/memodetail/{idx}(idx=${row.idx})}" th:text="${row.memo}"></a></td>
 			<td th:text="${row.post_date}"></td>
 		</tr>
 	</table>

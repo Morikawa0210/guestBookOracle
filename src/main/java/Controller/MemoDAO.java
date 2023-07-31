@@ -38,15 +38,11 @@ public class MemoDAO {
 	public void update(MemoDTO memoDTO) {
 		System.out.println("dao.updateメソッド入場");
 		sqlSession.update("memo.update", memoDTO);
-		sqlSession.commit();
-		sqlSession.close();
 	}
 	
 //	削除
 	public void delete(int idx) {
 		System.out.println("dao.deleteメソッド入場");
 		sqlSession.update("memo.delete", idx);
-		sqlSession.commit();
-		sqlSession.close();
 	}
 }
