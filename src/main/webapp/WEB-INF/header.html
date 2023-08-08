@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title></title>
 </head>
 <body>
 <a th:href="@{/welcomeHome}">Home</a> | <a th:href="@{/list}">メモ帳</a> | <a th:href="@{/guestbook}">ゲストブック</a> |
 <br>
-<p style="text-align:center"><a th:href="@{/logout}">ログイン</a></p>
-
 <p style="text-align:center"><a th:href="@{/}">ログイン</a></p>
+
+<p style="text-align:center"><a th:href="@{/logout}">ログアウト</a></p>
 <hr>
 </body>
 </html>

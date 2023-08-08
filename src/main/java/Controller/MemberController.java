@@ -69,6 +69,12 @@ public class MemberController {
 		return mv;
 	}
 	
+	@RequestMapping("/register")
+	public String register() {		//スタートページ
+//		list()メソッドにリダイレクト
+		return "register";
+	}
+	
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request) {
 		session=request.getSession(false);
