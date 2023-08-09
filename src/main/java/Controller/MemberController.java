@@ -8,13 +8,15 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import DTO.MemSertDTO;
 import DTO.MemberDTO;
 @Controller
 public class MemberController {
 	@Autowired
-	MemberDAO memberDAO;
+	MemberDAO memberDao;
 	@Autowired
 	HttpSession session;
 //	RequestMapping = PostMapping/GetMapping両方に対応
@@ -45,9 +47,10 @@ public class MemberController {
 			
 			if(existsError == true) {
 				mv.setViewName("redirect:/showLogin");
+				return mv;
 			}
 			
-			MemberDTO memberDTO = memberDAO.findUser(email, password);
+			MemberDTO memberDTO = memberDao.findUser(email, password);
 			System.out.println(memberDTO.getName());
 //		ログイン情報を保存する
 			HttpSession session = request.getSession();
@@ -85,6 +88,23 @@ public class MemberController {
 		}
 		System.out.println(session==null);
 		return "login";
+	}
+	
+	@RequestMapping("/meminsert") 
+	public String meminsert(@RequestParam String idx, String passwd, String name) {
+		System.out.println(idx+passwd+name);
+		
+		MemSertDTO memSertDto = new MemSertDTO();
+		memSertDto.setIdx(idx);
+		memSertDto.setPassword(passwd);
+		memSertDto.setName(name);
+		
+		System.out.println(idx+passwd+name);
+	
+		memberDao.userInsert(memSertDto);
+		System.out.println(memSertDto);
+
+	return "redirect:/showLogin";
 	}
 	
 	public boolean dataValidation(String email, String password, 

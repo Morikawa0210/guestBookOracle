@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <th:block th:include="header"></th:block>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>メモ帳</h2>
-	<div>名前：<input type="text" size="15">
 	<form th:action="@{/memoinsert}" th:method="post">
-	メモ：<input type="text" size="35">
+	<h2>メモ帳</h2>
+	<div>名前：<input type="text" name="writer" size="15">
+	メモ：<input type="text" name="memo" size="35">
 	<button type="submit">登録</button></div>
 	</form>
 	<table border="1">

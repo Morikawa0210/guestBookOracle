@@ -1,19 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
 <th:block th:include="header"></th:block>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    	$(function() {
+    		  		
+    		// 登録
+    		$("#btninsert").click(function() {
+
+    			document.form1.action="/meminsert";
+    			document.form1.submit();
+    		});
+    	});
+    
+</script>
 </head>
 <body>
-<div>
-ID:<input type="text" name="ID"><br>
-パスワード:<input type="text" name="password"><br>
+<form name="form1" method="post">
+ID:<input type="text" name="idx"><br>
+パスワード:<input type="text" name="passwd"><br>
 名前:<input type="text" name="name"><br>
-</div>
-
-<a href="">
-            <button type="button">登録</button>
-        </a>
+<input type="button" id="btninsert" value="登録">
+</form>
 </body>
 </html>

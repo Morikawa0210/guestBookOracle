@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import DTO.MemSertDTO;
 import DTO.MemberDTO;
 
 @Repository
@@ -16,8 +17,8 @@ public class MemberDAO {
 		MemberDTO memberDTO = new MemberDTO(email, password);
 		return sqlSession.selectOne("member.login", memberDTO);
 	}
-	
-	public MemberDTO userDetail(String idx){
-		return sqlSession.selectOne("member.detail",idx);
+	//登録
+	public void userInsert(MemSertDTO memSertDto){
+		sqlSession.insert("member.insert",memSertDto);
 	}
 }

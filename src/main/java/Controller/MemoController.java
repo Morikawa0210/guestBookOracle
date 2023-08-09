@@ -68,12 +68,11 @@ public class MemoController {
 	
 //	memoをDBに登録
 	@RequestMapping("/memoinsert")
-	public String insert(MemoDTO memoDTO) {
+	public String insert(@RequestParam String writer,String memo) {
+		MemoDTO memoDTO =new MemoDTO();
 //		DBにファイル名ごと登録
-		memoDTO.setAttendee("a");
-		memoDTO.setLocation("a");
-		memoDTO.setConclusion("a");
-		memoDTO.setPurpose("a");
+		memoDTO.setWriter(writer);
+		memoDTO.setMemo(memo);
 		memoDAO.insert(memoDTO);
 //		一覧へ遷移
 		System.out.println(memoDTO);

@@ -19,8 +19,8 @@
 	
 	<!--　1件登録　-->
 	<insert id="insert">
-		insert into member(idx, passswd, name)
-		values (#{idx}, #{passswd}, #{name})
+		insert into member(idx, passwd, name)
+		values (#{idx}, #{passwd}, #{name})
 	</insert>
   
   

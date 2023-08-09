@@ -36,8 +36,8 @@
   	</delete>
   	
   	<insert id="insert">
- 	 	insert into memo(idx, writer, purpose, location, attendee, memo, conclusion, post_date)
-		values (#{idx}, #{writer}, #{purpose}, #{location}, #{attendee}, #{memo}, #{conclusion}, #{post_date})
+ 	 	insert into memo(idx, writer, purpose, location, attendee, memo, conclusion)
+		values (#{idx}, #{writer}, 'test', 'test', 'test', #{memo}, 'test')
   	</insert>
  
   </mapper>

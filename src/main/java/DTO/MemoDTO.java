@@ -10,10 +10,10 @@ public class MemoDTO {
 	private int idx;
 	private String writer;
 	private String memo;
-	private String purpose="test";
-	private String location="test";
-	private String attendee="test";
-	private String conclusion="test";
+	private String purpose;
+	private String location;
+	private String attendee;
+	private String conclusion;
 	private String post_date;
 	
 	public String getPurpose() {
