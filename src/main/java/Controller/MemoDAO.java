@@ -31,8 +31,6 @@ public class MemoDAO {
 		System.out.println("dao.insertメソッド入場");
 		System.out.println(memoDTO);
 		sqlSession.insert("memo.insert", memoDTO);
-		sqlSession.commit();
-		sqlSession.close();
 	}
 	
 //	編集

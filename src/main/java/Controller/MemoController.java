@@ -19,8 +19,6 @@ import DTO.MemoDTO;
 public class MemoController {
 	@Autowired
 	MemoDAO memoDAO;
-	
-	
 //	メモ帳一覧
 	@RequestMapping("/list")
 	public ModelAndView list(ModelAndView mv) {

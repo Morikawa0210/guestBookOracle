@@ -37,7 +37,7 @@
   	
   	<insert id="insert">
  	 	insert into memo(idx, writer, purpose, location, attendee, memo, conclusion)
-		values (#{idx}, #{writer}, 'test', 'test', 'test', #{memo}, 'test')
+		values ((select nvl(max(idx)+1,1) from memo), #{writer}, 'test', 'test', 'test', #{memo}, 'test')
   	</insert>
  
   </mapper>
